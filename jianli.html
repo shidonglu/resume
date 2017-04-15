@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<style>
+	*{
+		margin: 0px;
+		padding:0px;
+		list-style: none;
+	}
+	body{
+		background-image:url(jimg/1.jpg);
+		background-repeat: no-repeat;		
+		background-size: 1360px 906px;
+		min-width: 1200px;
+		
+	}
+	.shou{
+		width: 762px;
+		height: 906px;
+		background-color: black;
+		opacity:0.8;
+		margin: 102px auto 0px;
+		border-radius: 8px;	
+		overflow: hidden;
+		position: relative;	
+	}
+	.flash{
+		width: 542px;
+		height: 646px;		
+		position: absolute;		
+		left: 0;
+		right: 0;
+		top: 480px;
+		bottom: 0;
+		margin:auto;
+	}
+	.flash ul li{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		text-align: center;
+		color: white;
+		display: none;
+		/*background-color: gray;*/
+
+	}
+	.photo{
+		width: 120px;
+		height: 120px;
+		background-color: white;
+		margin: 0 auto;
+		color: black;
+		line-height: 120px;
+		border-radius: 50%;
+	}
+	.name{
+       color:white;
+       font-size: 35px;
+       display: block;
+       margin-top: 20px;
+       margin-bottom: 20px;
+	}
+	.pro{
+		width: 100%;
+		height: 330px;
+		/*background-color: red;*/
+		color: white;
+		line-height: 330px;
+	}
+	.address{
+		width: 100%;
+		height: 110px;
+		/*background-color: green;*/
+	}
+	.address div{
+		width: 30px;
+		height: 30px;		
+		color: black;
+		background-color: white;
+		float: left;
+		font-size: 12px;
+		margin: 70px 0px 0px 65px;
+		
+	}
+
+	.di{		
+		width: 473px;
+		height: 104px;		
+		list-style: none;
+		margin: 0 auto;
+		position: absolute;
+		left:437px;
+		top:102px;		
+	}
+	.di li{
+		float: left;
+		margin-left: 4px;		
+		position: relative;				
+	}
+
+
+	.di li:first-child{
+		width: 99px;
+		height: 100%;
+		margin-left: 0px;
+	}
+	.di li:nth-child(2){
+		width: 131px;
+		height: 100%;
+	}
+	.di li:nth-child(3){
+		width: 142px;
+		height: 100%;
+	}
+	.di li:nth-child(4){
+		width: 89px;
+		height: 100%;
+	}
+	.di li div{
+		width: 100%;
+		height: 100%;
+		background-color: #17e7a4;
+		display: none;
+		position: absolute;
+		border-radius: 0px 0px 10px 10px;                
+	}
+	.di li span{
+		opacity: 0.7;
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		color: white;
+		font-size: 20px;
+		font-family: "microsoft yahei";
+		text-align: center;
+		padding-top: 60px;
+		box-sizing:border-box;		
+	}		
+	</style>
+</head>
+<body>
+	<div class="shou">
+	    			
+	</div>
+	<ul class="di">
+		<li>
+			<div></div>
+			<span>Profile</span>
+		</li>
+		<li>
+			<div></div>
+			<span>Education</span>
+		</li>
+		<li>
+			<div></div>
+			<span>Experience</span>
+		</li>
+		<li>
+			<div></div>
+			<span>Skills</span>
+		</li>
+	</ul>
+	<div class="flash">
+	    	<ul>
+	    		<li>
+	    			<div class="photo">
+	    				头像
+	    			</div>
+	    			<span class="name">
+	    				师东路
+	    			</span>
+	    			<div class="pro">
+	    				自我介绍
+	    			</div>
+	    			<div class="address">
+	    				<div>邮箱</div>
+	    				<div>github</div>
+	    				<div>qq</div>
+	    				<div>手机</div>
+	    				<div>微信</div>
+	    			</div>
+	    		</li>
+	    		<li>
+	    		     <div class="theme">说明</div>
+	    			<div class="univer">山西农业大学</div>
+	    			<div class="train">培训机构</div>
+	    		</li>
+	    		<li>
+	    		    <div class="magazine">龙源期刊网</div>
+	    			<div class="game">京蒙汇聚(北京)科技有限公司</div>
+	    			<div class="safe">北宇物业</div>	    			
+	    		</li>
+	    		<li>
+	    			<div class="magazine">HTML5</div>
+	    			<div class="game">CSS3</div>
+	    			<div class="safe">JQuery</div>
+	    		</li>
+	    	</ul>
+	    </div>	
+	<script>
+	$(".flash ul li").eq(0).css("display","block");
+	$(".flash ul li").eq(0).siblings().css("top","10%");	    
+	$(".flash ul li").eq(0).siblings().css("opacity","0");	    
+    $(".di li div").eq(0).css("display","block");
+    $(".di li span").eq(0).css("opacity","1")    
+	$(".di li").mouseover(function(){
+	        $(".di li").eq(0).unbind("mouseout");	                  
+	    	i=$(this).index();
+	    	$(".di li div").eq(i).stop().slideDown(300);	    	
+	    	$(".di li span").eq(i).stop().animate({opacity:"1"});    	
+	    $(".di li").click(function () {
+	        $(".di li").unbind("mouseover");
+	    	$(".flash ul li").eq(i).siblings().animate({"opacity":"0","top":"8%"}).fadeOut("slow");	    	
+	    	$(".flash ul li").eq(i).fadeIn("slow").animate({"opacity":"1","top":"0%"});
+        $(".di li").mouseover(function(){
+            i=$(this).index();
+	    	$(".di li div").eq(i).stop().slideDown(300);	    	
+	    	$(".di li span").eq(i).stop().animate({opacity:"1"});	    	
+        })
+	    $(".di li").mouseout(function(){
+        	i=$(this).index();        	
+	    	$(".di li div").eq(i).stop().slideUp(300);
+	    	$(".di li span").eq(i).stop().animate({opacity:"0.7"});
+        })	    	
+	    	$(this).siblings().find("div").slideUp(300);
+	    	$(".di li span").stop().animate({opacity:"0.7"})
+	    	$(".di li span").eq(i).stop().animate({opacity:"1"});	    	 
+	    	$(".di li div").eq(i).css("background","#17e7a4");
+	    	$(".di li div").eq(i).css("display","block");
+	    	$(this).unbind("mouseout");
+
+	    })
+            
+	})
+	$(".di li").mouseout(function(){
+            i=$(this).index();
+                
+	    	$(".di li div").eq(i).stop().slideUp(300);
+	    	    // $(".di li div").eq(0).css("display","block");
+	    	$(".di li span").eq(i).stop().animate({opacity:"0.7"})
+	    	     // $(".di li span").eq(0).css("opacity","1")
+       })	    
+	    
+	     
+	    
+       
+	     
+	</script>			
+</body>
+</html>
